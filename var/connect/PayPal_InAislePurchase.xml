@@ -1,5 +1,5 @@
 <_>
-   <form_key>ryYiI20B9b3DHsji</form_key>
+   <form_key>9LAdNoIvUtX8UQgk</form_key>
    <name>PayPal_InAislePurchase</name>
    <channel>community</channel>
    <version_ids>
@@ -9,9 +9,10 @@
    <description>Enable PayPal Here integration inside magento</description>
    <license>Open Software License (OSL)</license>
    <license_uri>http://opensource.org/licenses/osl-3.0.php</license_uri>
-   <version>0.9.0</version>
-   <stability>devel</stability>
-   <notes>0.9.0: first release</notes>
+   <version>0.9.1</version>
+   <stability>alpha</stability>
+   <notes>0.9.1: alpha stage
+0.9.0: first release</notes>
    <authors>
       <name>
          <name>PayPal</name>
@@ -40,7 +41,7 @@
             <max/>
          </max>
          <files>
-            <files>             </files>
+            <files>               </files>
          </files>
       </package>
       <extension>
