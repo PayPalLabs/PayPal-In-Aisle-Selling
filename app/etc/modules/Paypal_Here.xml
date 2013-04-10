@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Paypal_Here>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                
+            </depends>
+        </Paypal_Here>
+    </modules>
+</config>

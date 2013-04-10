@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>PayPal_InAislePurchase</name>
+    <version>0.9.0</version>
+    <stability>devel</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Enable PayPal Here integration inside magento</summary>
+    <description>Enable PayPal Here integration inside magento</description>
+    <notes>0.9.0: first release</notes>
+    <authors><author><name>PayPal</name><user>PayPal</user><email>vserpoul@paypal.com</email></author></authors>
+    <date>2013-04-10</date>
+    <time>07:10:36</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Paypal_Here.xml" hash="431124c2311dbd5c04df2562de932030"/></dir></target><target name="magecommunity"><dir name="Paypal"><dir name="Here"><dir name="Block"><file name="Extra.php" hash="b1738bda6a38ed71b82d223b5a01b014"/><file name="Here.php" hash="dc85f334248f22796ba9118d7de07342"/><file name="Link.php" hash="50903f821a3f4250352a50e8e6ad7bb0"/></dir><dir name="Helper"><file name="Data.php" hash="f858b7c6c84b50b29a076868af18fa38"/></dir><dir name="Model"><file name="Session.php" hash="39929619c8787571f1320a3157a33188"/><file name="Standard.php" hash="aff2de47b7c14c019836c447e9c54da2"/></dir><dir name="controllers"><file name="IndexController.php" hash="c3b2a06a548a7d4e665576b9f9c3ff64"/></dir><dir name="etc"><file name="config.xml" hash="d69bfffab9cdc91b1f65695369249b2c"/><file name="system.xml" hash="11ada0d9af6fbf854edf3b18b63ceefc"/></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="paypal"><file name="here.xml" hash="dec1c9eb46ed1eb5a48c56a7e1a32a64"/></dir></dir><dir name="template"><dir name="paypal"><dir name="here"><file name="extra.phtml" hash="3cb56119fe50264c6ff9d635bc265271"/><file name="here.phtml" hash="9cbc9b4b2122a390aa059e38d32874c5"/></dir></dir></dir></dir></dir></dir></target><target name="mageskin"><dir name="frontend"><dir name="base"><dir name="default"><dir name="images"><dir name="paypal"><dir name="paypalhere"><file name="paypalhere.png" hash="f62c576e6893b07492a1985164e7dbac"/></dir></dir></dir></dir></dir></dir></target><target name="mage"><dir name="js"><dir name="paypal"><file name="admin-uagent.js" hash="6706eff0de660a9a994c40a739a03312"/><file name="base64.js" hash="ce5e02af31e53e770e19a4312f58ec15"/><file name="jquery-1.6.4.min.js" hash="c40c304e40c34a809ab5f2b2462fe4d9"/><file name="jquery.json-2.3.min.js" hash="baa3ab64491201645de9021108f36824"/><file name="mobile.js" hash="452be933290dcacffd0be7d0ff4a9cab"/><file name="uagent.js" hash="22441d2e08adfcdaea628bbc006e25f6"/></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.0.0</min><max>5.4.0</max></php></required></dependencies>
+</package>

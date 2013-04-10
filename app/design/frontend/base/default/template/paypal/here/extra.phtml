@@ -1,0 +1,163 @@
+<?php
+/**
+ * Paypalhere
+ *
+ * @package      :  Paypalhere
+ * @version      :  0.9.0
+ * @since        :  Magento 1.7
+ * @author       :  Paypal - http://www.paypal.com
+ * @copyright    :  Copyright (C) 2013 Powered by Paypal
+ * @license      :  http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ *
+ */
+?>
+<?php if(Mage::helper('here')->getConfigValue('payment/here/active')): ?>
+<?php if( count(Mage::getSingleton('checkout/session')->getQuote()->getAllVisibleItems() ) > 0): ?>
+<?php $ppheresession = uniqid(); ?>
+<script type="text/javascript">
+//<![CDATA[
+function hideLabels() {
+	$('#name_label').hide();
+	$('#lname_label').hide();
+	$('#email_label').hide();
+	$('#phone_label').hide();
+}
+function showLabels() {
+	$('#name_label').show();
+	$('#lname_label').show();
+	$('#email_label').show();
+	$('#phone_label').show();
+}
+function hideFields() {
+	$('#lname').hide();
+	$('#name').hide();
+	$('#email').hide();
+	$('#phone').hide();
+}
+function showFields() {
+	$('#lname').show();
+	$('#name').show();
+	$('#email').show();
+	$('#phone').show();
+}
+function validateEmail(email) {
+    var emailStr = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return emailStr.test(email);
+}
+ $(document).ready(function() {
+	   //init
+	   var sendOption = 'yes';
+	   var email = '';
+	   var phone = '';
+	   var name = '';
+	   $('#no_action').click(function() {
+		   sendOption = 'no';
+		   hideLabels();
+		   hideFields();
+		   return false;
+	   });
+	   $('#notify_action').click(function() {
+		   sendOption = 'yes';
+		   showFields();
+		   return false;
+	   });
+	   $("ul.checkout-types>li>img#paypalhere_checkout").click(function(){
+		   hideLabels();
+		   error = 0;
+		   if(sendOption == 'yes') {
+			   if ($('#name').val() == '') {
+				   $('#name_label').show();
+				   error = 1;
+			   }
+			   if ($('#lname').val() == '') {
+				   $('#lname_label').show();
+				   error = 1;
+			   }
+			   if ($('#email').val() == '' || !validateEmail($('#email').val()) ) {
+				   $('#email_label').show();
+				   error = 1;
+			   }
+    		   if ($('#phone').val() == '') {
+    			   $('#phone_label').show();
+    			   error = 1;
+    		   }
+    		   if (error) {
+    			   return false;
+    		   }
+    		   //no error
+    		   email = $('#email').val();
+    		   phone = $('#phone').val();
+    		   name = $('#name').val();
+    		   lname = $('#lname').val();
+		   } else {
+			   //dont send receipt
+			   //set default
+			   email = "<?php echo Mage::helper('here')->getConfigValue('payment/here/email')?>";
+			   phone = "<?php echo Mage::helper('here')->getConfigValue('payment/here/phone')  ?>";
+			   name = "<?php echo Mage::helper('here')->getConfigValue('payment/here/name') ?>";
+			   lname = "<?php echo Mage::helper('here')->getConfigValue('payment/here/lname') ?>";
+		   }
+	   $.ajax({
+		   type: 'POST',
+		   url: '<?php echo Mage::getUrl()?>here/index/setsession',
+		   data: { email: email,
+			   phone: phone,
+			   sendoption: sendOption,
+			   name: name,
+			   lname: lname,
+			   ppheresession: "<?php echo $ppheresession; ?>" },
+		   beforeSend:function(){
+			   //update email or phone
+
+   		       //this is where we append a loading image
+		   },
+		   success:function(data){
+			 //launch PPH
+	         <?php $standard = Mage::getModel('here/standard');
+	         $contents = $standard->getStandardCheckoutContents($ppheresession);
+	         echo $contents;
+	         ?>
+		   },
+		   error:function(){
+		     //error handler
+		   }
+		 });
+	   });
+ });
+//]]>
+</script>
+<div style="padding:15px">
+
+<form id="customer-form">
+    <div class="customer-form">
+        <h2 id='here-label'><?php echo $this->__('Send Customer Sales Record?') ?></h2>
+        <button type="submit" id="notify_action" name="notify_action" value="0" title="<?php echo $this->__('Yes'); ?>" class="button btn-update"><span><?php echo $this->__('Yes'); ?></span></button>
+        <button type="submit" id="no_action" name="no_action" value="2" title="<?php echo $this->__('No thanks'); ?>" class="button btn-update"><span><?php echo $this->__('No Thanks'); ?></span></button>
+        <div class="form">
+            <div class="input-box">
+                <input class="input-text" id="name" name="name" value=""  placeholder="Enter Your First Name" />
+            </div>
+            <label style="color:red;display:none" for="name" id="name_label">*Invalid First Name</label>
+            <br/>
+            <div class="input-box">
+                <input class="input-text" id="lname" name="lname" value=""  placeholder="Enter Your Last Name" />
+            </div>
+            <label style="color:red;display:none" for="lname" id="lname_label">*Invalid Last Name</label>
+            <br/>
+            <div class="input-box">
+                <input class="input-text" id="email" name="email" placeholder="Enter Your Email" value="" />
+            </div>
+            <label style="color:red;display:none" for="email" id="email_label">*Invalid Email</label>
+            <br/>
+            <div class="input-box" >
+                <input class="input-text" id="phone" placeholder="Enter Your Mobile" name="phone" value="" />
+            </div>
+            <label style="color:red;display:none" for="phone" id="phone_label" >*Invalid Mobile</label>
+
+        </div>
+    </div>
+</form>
+
+</div>
+<?php endif; ?>
+<?php endif; ?>

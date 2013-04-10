@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <checkout_cart_index>
+        <remove name="checkout.cart.methods.onepage"/>
+        <remove name="checkout.cart.methods.multishipping"/>
+        <remove name="checkout.cart.coupon"/>
+        <reference name="checkout.cart">
+            <block type="here/extra" name="checkout.cart.extra" as="checkout.cart.extra" template="paypal/here/extra.phtml"/>
+        </reference>       
+        <reference name="checkout.cart.methods">
+            <block type="here/link" name="checkout.cart.methods.here.bottom"  template="paypal/here/here.phtml"/>
+        </reference>
+        <reference name="head">
+            <action method="addJs"><script>paypal/jquery-1.6.4.min.js</script></action>                 
+            <action method="addJs"><script>paypal/jquery.json-2.3.min.js</script></action>
+            <action method="addJs"><script>paypal/base64.js</script></action>
+        </reference>          
+    </checkout_cart_index>
+</layout>
+
