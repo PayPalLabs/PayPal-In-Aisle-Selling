@@ -10,7 +10,21 @@
  
 ##1. Overview
 
-This setup guide is to enable PayPal Order Ahead to be used with Magento. PayPal Order Ahead will let consumers check in to stores and then directly pay for goods and services with their PayPal accounts. Merchant is able to set locations, create invoices, and take PayPal payments on the mobile devices.
+This setup guide is to enable PayPal In Aisle selling to be used with Magento.
+
+“In-aisle selling” allows you to turn your Magento storefront into a "concierge" sales tool to service customers in the aisle or anywhere at your place of business, and then charge payment to the customer using PayPal Here installed on the same device.
+
+This extension enables PayPal Here as a payment method on your Magento storefront. With PayPal Here you can accept payments several ways, including via "Check-in" from the PayPal app, credit or debit card, checks, cash, and by invoice.
+
+Once installed, a "Charge with PayPal Here" button will be added to your shopping cart page. Clicking on "Charge with PayPal Here" will transfer the cart line items and customer details into PayPal Here installed on the same device. Once the transaction is successful, the transaction will be returned to Magento for completion and record keeping.
+
+##2. Features
+
+- Bypasses Magento 1-page checkout experience to provide a speedy checkout experience
+- Adds "Charge with PayPal button" in shopping cart
+- Add fields to collect customer name, email, and phone number on the shopping cart page for sending customers receipts
+- If customer does not want a receipt, there's an option to opt out
+- Sends shopping cart details to PayPal Here to complete payment through any of the available means - PayPal, Card, Cash, Check, or Invoice
 
 ##2. System Requirement
 
