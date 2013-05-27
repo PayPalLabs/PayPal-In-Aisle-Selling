@@ -3,10 +3,11 @@
 ##Table of Contents
 
 1. Overview
-2. System Requirement
-3. Prerequisites
-4. Configuring PayPal Here module
-5. Troubleshooting
+2. Features
+3. System Requirement
+4. Prerequisites
+5. Configuring PayPal Here module
+6. Troubleshooting
  
 ##1. Overview
 
@@ -26,7 +27,7 @@ Once installed, a "Charge with PayPal Here" button will be added to your shoppin
 - If customer does not want a receipt, there's an option to opt out
 - Sends shopping cart details to PayPal Here to complete payment through any of the available means - PayPal, Card, Cash, Check, or Invoice
 
-##2. System Requirement
+##3. System Requirement
 
 Your system must meet the following requirements:
 
@@ -34,7 +35,7 @@ Your system must meet the following requirements:
 * The latest version of this plugin on [magento connect](http://www.magentocommerce.com/magento-connect/catalog/product/view/id/17221/s/paypal-in-aisle-selling-6567/) or simply clone this repository.
 
 
-##3. Prerequisites
+##4. Prerequisites
 
 Before you register your application and enable the PayPal Check-in into the Magento, please make sure all of the following are true:
 
@@ -42,7 +43,7 @@ Before you register your application and enable the PayPal Check-in into the Mag
 * The web server on which Magento runs uses Secure Sockets Layer (SSL), which is also referred to as Secure HTTP or HTTPS to retrieve all the user attributes that Log In with PayPal supports.
 * Magento Admin should be on full valid HTTPS URL throughout.
 
-##4. Configuring PayPal Here module
+##5. Configuring PayPal Here module
 
 1. Go to Magento, system > Configuration, general tab and make sure your store informations are correct
 ![ScreenShot](readmeimages/InAisleSelling_conf_01.png)
@@ -56,6 +57,6 @@ Before you register your application and enable the PayPal Check-in into the Mag
 4. You should see a PayPal here button in the shopping cart
 ![ScreenShot](readmeimages/InAisleSelling_conf_04.png)
 
-##5. Troubleshooting
+##6. Troubleshooting
 
 No issue yet
