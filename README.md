@@ -34,7 +34,7 @@ Before you register your application and enable the PayPal Check-in into the Mag
 ![ScreenShot](readmeimages/InAisleSelling_conf_01.png)
 
 2. Activate free shipping
-![ScreenShot](readmeimages/InAisleSelling_conf_02.png)
+![ScreenShot](readmeimages/InAisleSelling_config_02.png)
 
 3. Activate PayPal Here
 ![ScreenShot](readmeimages/InAisleSelling_conf_03.png)
